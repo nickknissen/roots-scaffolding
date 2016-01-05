@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "$(uname)" == "Darwin" ]; then
+	DEPENDENCIES=("ansible" "git" "VirtualBox" "vagrant")
+else
+	DEPENDENCIES=("ansible" "git" "virtual-box" "vagrant")
+fi
+
 
 f_create(){
 clear
@@ -40,7 +46,6 @@ echo "invalid option"
 }
 
 f_check_dependency(){
-DEPENDENCIES=("ansible" "git" "virtual-box" "vagrant")
 
 #TODO: Install / update vagrant dependencies (vagrant-bindfs, vagrant-hostmanager)
 
